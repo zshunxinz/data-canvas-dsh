@@ -1,6 +1,6 @@
 {
   "name": "data-canvas-dsh",
-  "version": "0.26.0",
+  "version": "0.27.0",
   "private": true,
   "type": "module",
   "description": "DeepSeek Harness 画布插件：持久化分析画布、数据源引用与卡片溯源；更新见插件内「最近更新」。",
@@ -18,11 +18,12 @@
     "cordis.patch.yml",
     "README.md",
     "CHANGELOG.md",
-    "LICENSE"
+    "LICENSE",
+    "examples"
   ],
   "scripts": {
     "build:client": "node scripts/build-client.mjs",
-    "test": "pnpm build:client && node --test tests/grid.test.js tests/store.test.js tests/tools.test.js tests/routes.test.js tests/data-source.test.js tests/database.test.js tests/client-render.test.js tests/client-static.test.js tests/snap.test.js tests/tool-schema.test.js tests/themes.test.js tests/trust.test.js tests/undo.test.js tests/trace.test.js tests/lineage.test.js tests/followup.test.js tests/reference.test.js",
+    "test": "pnpm build:client && node --test tests/grid.test.js tests/store.test.js tests/tools.test.js tests/routes.test.js tests/data-source.test.js tests/database.test.js tests/examples.test.js tests/client-render.test.js tests/client-static.test.js tests/snap.test.js tests/tool-schema.test.js tests/themes.test.js tests/trust.test.js tests/undo.test.js tests/trace.test.js tests/lineage.test.js tests/followup.test.js tests/reference.test.js",
     "build:echarts": "node scripts/build-echarts-chunk.mjs",
     "pack": "pnpm pack",
     "prepack": "pnpm build:client"
