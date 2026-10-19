@@ -1,7 +1,6 @@
 {
   "name": "data-canvas-dsh",
   "version": "0.28.0",
-  "private": true,
   "type": "module",
   "description": "DeepSeek Harness 画布插件：持久化分析画布、数据源引用与卡片溯源；更新见插件内「最近更新」。",
   "main": "./index.js",
