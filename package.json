@@ -1,6 +1,6 @@
 {
   "name": "dsh-xcharts-canvas",
-  "version": "0.24.5",
+  "version": "0.25.0",
   "private": true,
   "type": "module",
   "description": "DeepSeek Harness 画布插件：持久化分析画布、数据源引用与卡片溯源；更新见插件内「最近更新」。",
@@ -70,5 +70,13 @@
     "mysql",
     "postgresql",
     "parquet"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zshunxinz/data-canvas-dsh.git"
+  },
+  "homepage": "https://github.com/zshunxinz/data-canvas-dsh#readme",
+  "bugs": {
+    "url": "https://github.com/zshunxinz/data-canvas-dsh/issues"
+  }
 }
