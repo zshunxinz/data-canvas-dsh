@@ -1,0 +1,74 @@
+{
+  "name": "dsh-xcharts-canvas",
+  "version": "0.24.5",
+  "private": true,
+  "type": "module",
+  "description": "DeepSeek Harness 画布插件：持久化分析画布、数据源引用与卡片溯源；更新见插件内「最近更新」。",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "client.echarts.js",
+    "lib",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build:client": "node scripts/build-client.mjs",
+    "test": "pnpm build:client && node --test tests/grid.test.js tests/store.test.js tests/tools.test.js tests/routes.test.js tests/data-source.test.js tests/database.test.js tests/client-render.test.js tests/client-static.test.js tests/snap.test.js tests/tool-schema.test.js tests/themes.test.js tests/trust.test.js tests/undo.test.js tests/trace.test.js tests/lineage.test.js tests/followup.test.js tests/reference.test.js",
+    "build:echarts": "node scripts/build-echarts-chunk.mjs",
+    "pack": "pnpm pack",
+    "prepack": "pnpm build:client"
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/dsh-tools": "^0.1.2-rc.1 || ^0.1.5-rc.2 || ^0.1.7-rc.2 || ^0.2.0-rc.1",
+    "@deepseek-ai/schemastery": "^3.18.4"
+  },
+  "devDependencies": {
+    "echarts": "^6.1.0"
+  },
+  "dependencies": {
+    "csv-parse": "6.1.0",
+    "exceljs": "4.4.0",
+    "pg": "8.23.1",
+    "mysql2": "3.24.6",
+    "hyparquet": "1.31.4",
+    "hyparquet-compressors": "1.1.2"
+  },
+  "changelog": "CHANGELOG.md",
+  "license": "MIT",
+  "author": "xchartsAI contributors",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "dsh-plugin",
+    "canvas",
+    "data-analysis",
+    "echarts",
+    "datasource",
+    "mysql",
+    "postgresql",
+    "parquet"
+  ]
+}

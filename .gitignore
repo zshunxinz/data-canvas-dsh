@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# build artifacts
+*.tgz
+*.log
+
+# local credentials / data
+secrets.key
+secrets/
+.dsh/
+
+# internal notes (kept locally, not published)
+docs/internal/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
