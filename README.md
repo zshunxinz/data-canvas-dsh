@@ -22,6 +22,8 @@
 
 想用自己的数据：点「新增数据源」拖入 CSV/TSV/XLSX/Parquet，或连接 MySQL/PostgreSQL。
 
+![数据源与分析：默认示例数据](docs/assets/datasource-ui.png)
+
 ## 五分钟上手
 
 **1. 看一份数据**
@@ -49,6 +51,10 @@ ORDER BY amount DESC
 **4. 回到对话继续**
 
 在聊天里引用数据源或结果，AI 会基于真实数据回答；追问卡片时，它会沿着卡片版本继续，而不是重新猜。
+
+![分析画布](docs/assets/canvas-view.png)
+
+![对话中的卡片与引用](docs/assets/conversation-view.png)
 
 ## 功能一览
 
