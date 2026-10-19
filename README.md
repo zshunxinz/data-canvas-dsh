@@ -84,13 +84,23 @@ ORDER BY amount DESC
 
 前置：DeepSeek Harness（桌面或 `dsh web`），Node.js 22+。
 
-**方式一：插件管理器**（发布后）
+**方式一：从 GitHub 安装（当前推荐）**
 
-在 DSH 的插件管理器里安装 `data-canvas-dsh`，然后重启。
+在 profile 的 `package.json` 里声明 git 依赖（固定到发布 tag，避免分支变动）：
 
-**方式二：从源码安装**
+```json
+{
+  "dependencies": {
+    "data-canvas-dsh": "github:zshunxinz/data-canvas-dsh#v0.28.1"
+  }
+}
+```
 
-把本仓库放进 profile 的 `node_modules/`，在 profile 的 `package.json` 里声明：
+并在 `dsh.profile.bundles` 中加入 `data-canvas-dsh`，然后重启 DSH。
+
+> 仓库已提交构建产物（`client.js`、`client.echarts.js`），git 安装无需再跑构建；依赖（pg/mysql2/hyparquet）会随安装自动装上。
+
+**方式二：本地源码（开发/调试）**
 
 ```json
 {
@@ -99,6 +109,8 @@ ORDER BY amount DESC
 ```
 
 并在 `dsh.profile.bundles` 中加入 `data-canvas-dsh`，然后重启 DSH。
+
+> npm 包暂未发布；发布后会补 `npm install data-canvas-dsh` 的方式。
 
 > 宿主侧的路由与工具在启动时加载，因此**安装或升级后需要重启 DSH**；浏览器页面刷新即可。
 
