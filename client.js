@@ -6306,6 +6306,11 @@ window.__ModuleLoader__.load({
         catch (e) { if (ticket === sourceReadSeq.current) { setDetail(null); setError(e.message); setUsage(null) } }
         finally { if (ticket === sourceReadSeq.current) setBusy(false) }
       }
+      // 首次打开（或还没有选中项）时自动选中第一个数据源：内置示例会直接显示预览。
+      useEffect(() => {
+        if (preferredDatasourceId || selected || busy || !items.length) return
+        void choose(items[0].id)
+      }, [items.length, selected, busy, preferredDatasourceId])
       useEffect(() => { if (preferredDatasourceId) choose(preferredDatasourceId, preferredSourceHash || null) }, [preferredDatasourceId, preferredSourceHash])
       const beginRename = item => { setRenamingId(item.id); setRenameDraft(item.name); setError(''); setNotice(''); setLastAddedCanvas(null) }
       const cancelRename = () => { setRenamingId(''); setRenameDraft('') }

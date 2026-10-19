@@ -27,6 +27,7 @@ import { traceToolDefinitions } from './lib/trace-tools.js'
 import { referenceToolDefinitions } from './lib/reference-tools.js'
 import { ReferenceService } from './lib/reference-service.js'
 import { captureExecution } from './lib/execution-evidence.js'
+import { ensureExampleSource } from './lib/example-data.js'
 
 export const name = 'data-canvas-dsh'
 
