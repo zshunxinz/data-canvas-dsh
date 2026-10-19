@@ -1,9 +1,9 @@
-# dsh-xcharts-canvas bundle patch.
+# data-canvas-dsh bundle patch.
 #
 # One insert row mounts the Host half. The browser half is declared by
 # `dsh.client` in package.json and binds to the row whose `name` is the bare
 # package name.
 - insert:
     - id: xcharts-canvas
-      name: 'dsh-xcharts-canvas'
+      name: 'data-canvas-dsh'
       config: {}

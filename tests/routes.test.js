@@ -1206,7 +1206,7 @@ test('a workspace backup exports every canvas and template and imports them as n
     assert.equal(bundle.format_version, 1)
     assert.equal(bundle.canvas_count, 1)
     assert.equal(bundle.template_count, 1)
-    assert.equal(bundle.canvases[0].format, 'dsh-xcharts-canvas-backup')
+    assert.equal(bundle.canvases[0].format, 'data-canvas-dsh-backup')
 
     const imported = await request(handler, 'POST', `${PREFIX}/backup/import`, bundle)
     assert.equal(imported.statusCode, 201)

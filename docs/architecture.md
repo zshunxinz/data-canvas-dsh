@@ -1,6 +1,6 @@
 # Architecture
 
-dsh-xcharts-canvas 是一个 DeepSeek Harness 插件（Cordis bundle），分宿主与浏览器两半。
+data-canvas-dsh 是一个 DeepSeek Harness 插件（Cordis bundle），分宿主与浏览器两半。
 
 ## 目录
 

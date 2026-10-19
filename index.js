@@ -1,5 +1,5 @@
 /**
- * dsh-xcharts-canvas — Host half.
+ * data-canvas-dsh — Host half.
  *
  * Gives the agent a durable place to keep analysis results: several canvases,
  * each holding chart / table / KPI / text cards on a 96-column grid that the
@@ -28,7 +28,7 @@ import { referenceToolDefinitions } from './lib/reference-tools.js'
 import { ReferenceService } from './lib/reference-service.js'
 import { captureExecution } from './lib/execution-evidence.js'
 
-export const name = 'xcharts-canvas'
+export const name = 'data-canvas-dsh'
 
 /** `tools` is the only service this plugin cannot work without. */
 export const inject = ['tools']
@@ -36,7 +36,7 @@ export const inject = ['tools']
 /**
  * @typedef {object} Config
  * @property {string} [storagePath] directory holding canvases; defaults to
- *   `$DSH_HOME/storages/xcharts-canvas`
+ *   `$DSH_HOME/storages/xcharts-canvas`（历史路径，保持数据兼容）
  */
 
 export function apply (ctx, config = {}) {
@@ -73,7 +73,7 @@ export function apply (ctx, config = {}) {
 
   ctx.on?.('tools/result', (exec, result) => {
     try { captureExecution(resolveRoot(), exec, result) }
-    catch (error) { ctx.logger?.warn?.(`[xcharts-canvas] execution evidence unavailable: ${error.code || 'WRITE_ERROR'}`) }
+    catch (error) { ctx.logger?.warn?.(`[data-canvas-dsh] execution evidence unavailable: ${error.code || 'WRITE_ERROR'}`) }
   })
 
   // One short instruction, only about the reference markers a user message can
@@ -86,7 +86,7 @@ export function apply (ctx, config = {}) {
     }), 'xcharts-canvas: reference prompt')
   })
 
-  ctx.logger?.info?.(`[xcharts-canvas] ${registered} canvas tools registered; storage at ${resolveRoot()}`)
+  ctx.logger?.info?.(`[data-canvas-dsh] ${registered} canvas tools registered; storage at ${resolveRoot()}`)
 
   // Graceful degradation: a broken storage directory must not take the whole
   // plugin tree down — the tools will report the error per call instead.
@@ -97,7 +97,7 @@ export function apply (ctx, config = {}) {
     // context, so the shape catalogue is visible before the agent writes.
     store.seedExampleIfEmpty()
   } catch (error) {
-    ctx.logger?.warn?.(`[xcharts-canvas] storage not readable yet (${resolveRoot()}): ${String(error)}`)
+    ctx.logger?.warn?.(`[data-canvas-dsh] storage not readable yet (${resolveRoot()}): ${String(error)}`)
   }
 
   // ── browser-facing JSON API ────────────────────────────────────────────────
@@ -122,7 +122,7 @@ export function apply (ctx, config = {}) {
       () => scoped.webServer.register({ kind: 'prefix', path: mountPath, handler }),
       'xcharts-canvas: api routes',
     )
-    ctx.logger?.info?.(`[xcharts-canvas] canvas API mounted at ${mountPath}`)
+    ctx.logger?.info?.(`[data-canvas-dsh] canvas API mounted at ${mountPath}`)
   })
 }
 

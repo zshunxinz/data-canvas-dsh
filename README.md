@@ -1,4 +1,4 @@
-# dsh-xcharts-canvas
+# data-canvas-dsh
 
 > 在 DeepSeek Harness 里把数据变成**可复用的分析卡片**：导入文件或连接数据库（只读），查询、看结果、落卡、在对话里引用、追溯每个数字的来源。
 
@@ -28,10 +28,10 @@
 2. 或本地开发：把本目录放入 profile 的 `node_modules/`，在 profile 的 `package.json` 里声明：
 
    ```json
-   { "dependencies": { "dsh-xcharts-canvas": "link:/path/to/dsh-xcharts-canvas" } }
+   { "dependencies": { "data-canvas-dsh": "link:/path/to/data-canvas-dsh" } }
    ```
 
-   并在 `dsh.profile.bundles` 中加入 `dsh-xcharts-canvas`。
+   并在 `dsh.profile.bundles` 中加入 `data-canvas-dsh`。
 
 3. 重启 DSH（宿主侧路由/工具在启动时加载）；浏览器侧刷新即可。
 

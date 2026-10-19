@@ -98,7 +98,7 @@
           let info
           try { info = await getCapabilities() } catch (e) { setConnectionError(e.message); return }
           if (info.datasource_api !== true) {
-            setConnectionError('当前运行中的插件包不包含独立数据源接口，请安装新版 dsh-xcharts-canvas 并重启 DSH。')
+            setConnectionError('当前运行中的插件包不包含独立数据源接口，请安装新版 data-canvas-dsh 并重启 DSH。')
             return
           }
           setCapabilities(info)

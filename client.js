@@ -1,6 +1,6 @@
 // ── 00-entry.js ─────────────────────────────────────────────────────────
 /**
- * dsh-xcharts-canvas — browser half.
+ * data-canvas-dsh — browser half.
  *
  * Generated from ordered client-src sections by scripts/build-client.mjs.
  * It preserves the host ModuleLoader contract and uses the shell-provided `react` dependency.
@@ -26,7 +26,7 @@
  */
 
 window.__ModuleLoader__.load({
-  id: 'dsh-xcharts-canvas',
+  id: 'data-canvas-dsh',
   factory: require => {
     const module = { exports: {} }
     const exports = module.exports
@@ -6228,7 +6228,7 @@ window.__ModuleLoader__.load({
           let info
           try { info = await getCapabilities() } catch (e) { setConnectionError(e.message); return }
           if (info.datasource_api !== true) {
-            setConnectionError('当前运行中的插件包不包含独立数据源接口，请安装新版 dsh-xcharts-canvas 并重启 DSH。')
+            setConnectionError('当前运行中的插件包不包含独立数据源接口，请安装新版 data-canvas-dsh 并重启 DSH。')
             return
           }
           setCapabilities(info)

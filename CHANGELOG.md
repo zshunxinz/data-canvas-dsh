@@ -1,5 +1,11 @@
 # 更新记录
 
+## v0.26.0 — 2026-10-19
+
+- 包名与模块注册名统一为 **data-canvas-dsh**（与仓库同名）；客户端 bundle 与 echarts chunk 的注册 id 同步更新。
+- 备份格式改为 `data-canvas-dsh-backup`，旧的 `dsh-xcharts-canvas-backup` 备份仍可导入。
+- 宿主插件模块名与日志前缀改为 data-canvas-dsh；存储路径与 HTTP 路由保持不变，已有数据无需迁移。
+
 ## v0.25.0 — 2026-10-19（首个开源版本）
 
 - 数据源：CSV/TSV/XLSX/Parquet 导入；MySQL/PostgreSQL 只读连接（凭据本地加密，密码不进模型/备份/日志）

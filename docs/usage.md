@@ -111,7 +111,7 @@ CSV / XLSX → 导入本地数据源 → 结构化查询 → 保存结果快照 
 
 ```sh
 pnpm pack
-npx @deepseek-ai/dsh plugin --profile <your-profile> add ./dsh-xcharts-canvas-0.10.20.tgz
+npx @deepseek-ai/dsh plugin --profile <your-profile> add ./data-canvas-dsh-0.10.20.tgz
 npx @deepseek-ai/dsh --profile <your-profile>
 ```
 
@@ -119,13 +119,13 @@ npx @deepseek-ai/dsh --profile <your-profile>
 
 ```sh
 npx @deepseek-ai/dsh --profile <your-profile> --dump-config
-# 预期输出中包含：  # == dsh-xcharts-canvas
+# 预期输出中包含：  # == data-canvas-dsh
 ```
 
 卸载插件：
 
 ```sh
-npx @deepseek-ai/dsh plugin --profile <your-profile> remove dsh-xcharts-canvas
+npx @deepseek-ai/dsh plugin --profile <your-profile> remove data-canvas-dsh
 ```
 
 ## 配置
@@ -138,7 +138,7 @@ profile patch 示例：
 
 ```yaml
 - id: xcharts-canvas
-  name: dsh-xcharts-canvas
+  name: data-canvas-dsh
   config:
     storagePath: 'D:/analysis/canvases'
 ```
@@ -227,7 +227,7 @@ pnpm test
 2. **按职责扩展源码。** `client-src/` 文件是共享同一个 ModuleLoader factory 作用域的有序源码段，不是独立 ES module。新增源码段时，在 `scripts/build-client.mjs` 的 `sections` 中登记顺序；不要在源码段内添加 `import`、`export` 或额外包装作用域。日常只修改源码段；`client.js` 是生成的运行时文件，不应作为唯一源码编辑。
 3. **构建并验证。** 执行 `pnpm build:client` 生成 `client.js`，再运行 `pnpm test`（会先重建客户端）。客户端改动还应检查 `node --check client.js` 和 `git diff --check`。打包前确认测试使用的是新生成的入口，而不是旧 bundle。
 4. **开发时热加载。** 只有在同一份 DSH checkout 中运行 `pnpm run dev:web`，且 client-plugin HMR 接收器可用时，客户端插件改动才会自动热加载。开始调试前确认 watcher 正在运行；不要用另起的 Web 服务替代当前 profile。宿主代码或打包产物的更新通常需要重新安装插件并重启当前 profile。
-5. **更新本地 profile。** 先递增 `package.json` 版本，再执行 `pnpm pack`；`prepack` 会自动构建客户端，产物为 `dsh-xcharts-canvas-<version>.tgz`。将 Web profile 的本地 `file:` 依赖指向新 tarball，再执行 `pnpm install --offline` 并重启 profile。最后核对已安装版本、`client.js` 与 `client.echarts.js` 的 SHA-256 和原有 Web 端口。同版本 tarball 可能被包管理器缓存；不要只依赖 `--force` 或“安装成功”提示判断更新完成，应使用新版本并比对文件哈希。
+5. **更新本地 profile。** 先递增 `package.json` 版本，再执行 `pnpm pack`；`prepack` 会自动构建客户端，产物为 `data-canvas-dsh-<version>.tgz`。将 Web profile 的本地 `file:` 依赖指向新 tarball，再执行 `pnpm install --offline` 并重启 profile。最后核对已安装版本、`client.js` 与 `client.echarts.js` 的 SHA-256 和原有 Web 端口。同版本 tarball 可能被包管理器缓存；不要只依赖 `--force` 或“安装成功”提示判断更新完成，应使用新版本并比对文件哈希。
 6. **提交前收尾。** 检查完整 diff 和工作区状态，只提交本次相关文件；提交说明使用中文，不推送，除非另有明确要求。
 
 #### 迭代时容易重犯的问题

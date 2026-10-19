@@ -11,7 +11,7 @@
 pnpm install          # 安装依赖（含 pg/mysql2/hyparquet）
 pnpm build:client     # 拼接 client-src → client.js
 pnpm test             # 构建 + 全量测试
-pnpm pack             # 生成 dsh-xcharts-canvas-<version>.tgz
+pnpm pack             # 生成 data-canvas-dsh-<version>.tgz
 ```
 
 单独跑测试：

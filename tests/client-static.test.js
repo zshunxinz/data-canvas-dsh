@@ -19,7 +19,7 @@ import vm from 'node:vm'
  *      and the panel rendered blank while the HTTP API was perfectly healthy.
  *
  *   2. SyntaxError: Unexpected token ')'
- *        dsh-xcharts-canvas: import failed
+ *        data-canvas-dsh: import failed
  *      A mismatched parenthesis in a deeply nested `h(...)` tree shipped a
  *      bundle that could not be parsed at all. Every other test still passed,
  *      because none of them PARSED the file — the first assertion below exists
@@ -124,7 +124,7 @@ test('no useCallback lists itself in its own dependency array (the crash)', () =
 
 test('the bundle registers through the documented ModuleLoader shape', () => {
   assert.match(CLIENT, /window\.__ModuleLoader__\.load\(/)
-  assert.match(CLIENT, /id:\s*'dsh-xcharts-canvas'/)
+  assert.match(CLIENT, /id:\s*'data-canvas-dsh'/)
   assert.match(CLIENT, /factory:\s*require\s*=>/)
 })
 
